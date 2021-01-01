@@ -5,3 +5,4 @@ api-version: 1.15
 authors: [Johvu, Kaap0]
 commands:
   violin:
+  horn:

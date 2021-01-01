@@ -3,13 +3,16 @@
  import com.xxmicloxx.NoteBlockAPI.NoteBlockAPI;
  import com.xxmicloxx.NoteBlockAPI.model.Song;
  import com.xxmicloxx.NoteBlockAPI.songplayer.NoteBlockSongPlayer;
+ import com.xxmicloxx.NoteBlockAPI.songplayer.PositionSongPlayer;
  import com.xxmicloxx.NoteBlockAPI.songplayer.RadioSongPlayer;
  import com.xxmicloxx.NoteBlockAPI.utils.NBSDecoder;
+ import org.bukkit.Bukkit;
  import org.bukkit.block.data.type.NoteBlock;
  import org.bukkit.command.Command;
  import org.bukkit.command.CommandExecutor;
  import org.bukkit.command.CommandSender;
  import org.bukkit.entity.Player;
+ import org.bukkit.plugin.Plugin;
 
  import java.io.File;
 
@@ -29,6 +32,9 @@
     		if(args[0] == null){
     			return false;
 			}
+			if(args[0].equals("menu")){
+				main.openMusicInv("violin", player);
+			}
     		if(args[0].equals("alone")){
 				Song song = NBSDecoder.parse(new File(main.getDataFolder(), "2.nbs"));
 				RadioSongPlayer rsp = new RadioSongPlayer(song);;
@@ -42,6 +48,16 @@
 				player.sendMessage("Soitetaan");
 				rsp.addPlayer(player);
 				rsp.setPlaying(true);
+			}
+			if(args[0].equals("jones")){
+				Song song = NBSDecoder.parse(new File(main.getDataFolder(), "5.nbs"));
+				RadioSongPlayer rsp = new RadioSongPlayer(song);;
+				player.sendMessage("Soitetaan");
+				rsp.addPlayer(player);
+				rsp.setPlaying(true);
+			}
+			if(args[0].equals("stop")){
+				NoteBlockAPI.stopPlaying(player.getUniqueId());
 			}
 
 			return false;
