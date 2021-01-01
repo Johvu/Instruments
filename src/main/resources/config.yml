@@ -1,0 +1,9 @@
+#instrument lore black is replaced automatic
+# songs folder workd instrument/songs that can be played whit the item
+instruments:
+    - example
+music-stop: "&7Music stopped"
+music-start: "Music started"
+music-noitem: "Music stopped beacuse you dont have instrument in your hand"
+particles: true
+distance: 16

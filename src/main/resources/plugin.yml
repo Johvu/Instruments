@@ -4,5 +4,11 @@ main: fi.johvu.motimusic.MotiMusic
 api-version: 1.15
 authors: [Johvu, Kaap0]
 commands:
-  violin:
-  horn:
+  music:
+permissions:
+    music.start:
+        description: Enables instruments
+        default: op
+    music.stop:
+        description: Gives access to stop music sel
+        default: op
