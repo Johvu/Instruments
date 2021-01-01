@@ -1,0 +1,7 @@
+name: MotiMusic
+version: ${project.version}
+main: fi.johvu.motimusic.MotiMusic
+api-version: 1.15
+authors: [Johvu, Kaap0]
+commands:
+  violin:
