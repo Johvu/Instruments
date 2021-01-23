@@ -16,6 +16,8 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import java.io.File;
 import java.util.HashSet;
@@ -109,35 +111,26 @@ public class Listeners implements Listener {
 	@EventHandler
 	public void onClick(PlayerInteractEvent e){
 		Player p = e.getPlayer();
+		ItemStack i = e.getItem();
 
 		if(p.hasPermission("music.start")) {
+			if (i == null || !i.hasItemMeta() || !i.getItemMeta().hasCustomModelData()) {
+				return;
+			}
+			ItemMeta meta = i.getItemMeta();
 
-			if (e.getItem() == null) {
+			if (main.getConfig().getIntegerList("custom-model-data").contains(meta.getCustomModelData())) {
+				main.openMusicInv(String.valueOf(meta.getCustomModelData()), p);
 				return;
 			}
-			if (!e.getItem().hasItemMeta()) {
-				return;
-			}
-			if (e.getItem().getItemMeta() == null) {
-				return;
-			}
-
-			if (e.getItem().getItemMeta().hasCustomModelData()) {
-				if (main.getConfig().getIntegerList("custom-model-data").contains(e.getItem().getItemMeta().getCustomModelData())) {
-					main.openMusicInv(String.valueOf(e.getItem().getItemMeta().getCustomModelData()), p);
-					return;
-				}
-			}
-			if(!(e.getItem().getItemMeta().getLore() == null)){
-			if (!(e.getItem().getItemMeta().getLore().get(0) == null)) {
-				if (main.getConfig().getStringList("intrument-check-lore").contains(e.getItem().getItemMeta().getLore().get(0).replace("§", "&"))) {
-					main.openMusicInv(e.getItem().getItemMeta().getLore().get(0).replace("§", "&"), p);
+			
+			if(meta.hasLore()){
+				if (main.getConfig().getStringList("intrument-check-lore").contains(meta.getLore().get(0).replace("§", "&"))) {
+					main.openMusicInv(meta.getLore().get(0).replace("§", "&"), p);
 				}
 			}
 		}
-		}
-
-		}
+	}
 
 
 }
