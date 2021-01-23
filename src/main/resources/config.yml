@@ -1,9 +1,14 @@
-#instrument lore black is replaced automatic
-# songs folder workd instrument/songs that can be played whit the item
-instruments:
+# you can check intruments using lores or custom model data
+intrument-check-lore:
     - example
+custom-model-data:
+    - 12345
+# messages
+prefix: "&6Instruments &8&l» &r"
 music-stop: "&7Music stopped"
-music-start: "Music started"
-music-noitem: "Music stopped beacuse you dont have instrument in your hand"
+music-start: "&7Music started"
+music-noitem: "&7Music stopped beacuse you dont have instrument in your hand"
+music-alredy: "&7Music is playing alredy please stop the music first"
 particles: true
+# distance that players can hear the music
 distance: 16

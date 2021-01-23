@@ -1,14 +1,21 @@
-name: MotiMusic
+name: Instruments
 version: ${project.version}
-main: fi.johvu.motimusic.MotiMusic
+main: fi.johvu.instruments.Main
 api-version: 1.15
 authors: [Johvu, Kaap0]
+depend: [NoteblockAPI]
 commands:
   music:
 permissions:
     music.start:
-        description: Enables instruments
+        description: Give players to right to play instruments
         default: op
     music.stop:
-        description: Gives access to stop music sel
+        description: Gives access to stop music
+        default: op
+    music.about:
+        description: Gives access to /music about command
+        default: op
+    music.reload:
+        description: Gives access to /music reload command
         default: op
