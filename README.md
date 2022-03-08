@@ -1,11 +1,9 @@
 # Instruments
 
-Plugin which plays musics whit spesific sound liek violin.......
+Plugin which plays musics whit spesific item whit diffrent sounds
 
 Requirements: Noteblockapi
 
-Commands:
+Commands: /music stop /music reload /music about
 
- /music stop
- /music reload
- /music about
+Preview:
