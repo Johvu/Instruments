@@ -1,6 +1,6 @@
 # Instruments
 
-Plugin which plays musics whit spesific item whit diffrent sounds
+Plugin which convert's nbt in to spesific instrument and plays musics with spesific item with diffrent sounds
 
 Requirements: Noteblockapi
 
